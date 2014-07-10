@@ -18,17 +18,20 @@ type State struct {
 
 	// Network runtime state.
 	NetworkState network.NetworkState `json:"network_state,omitempty"`
+
+	// Status of the container
+	Status Status `json:"status,omitempty"`
 }
 
-// The running state of the container.
-type RunState int
+// Status of the container
+type Status int
 
 const (
 	// The name of the runtime state file
 	stateFile = "state.json"
 
 	// The container exists and is running.
-	Running RunState = iota
+	Running Status = iota
 
 	// The container exists, it is in the process of being paused.
 	Pausing
